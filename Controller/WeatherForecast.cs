@@ -1,4 +1,4 @@
-namespace preAlgebraCourseService;
+namespace Controller;
 
 public class WeatherForecast
 {

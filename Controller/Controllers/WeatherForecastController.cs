@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace preAlgebraCourseService.Controllers;
+namespace Controller.Controllers;
 
 [ApiController]
 [Route("[controller]")]
