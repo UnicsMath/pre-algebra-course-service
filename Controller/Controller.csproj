@@ -21,6 +21,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Service\Service.csproj" />
       <ProjectReference Include="..\UnitTest\UnitTest.csproj" />
+      <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 namespace Enum;
 
-public enum MathOperators
+public enum MathOperators: byte
 {
     Subtraction,
     Addition,
