@@ -4,5 +4,5 @@ namespace Repository;
 
 public interface IChapterRepository
 {
-    ChapterModel GetByChapterName(string chapterName);
+    ChapterModel GetByChapterName(ushort chapterNumber);
 }

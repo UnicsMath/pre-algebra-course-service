@@ -11,6 +11,6 @@ public class ChapterService
     public ChapterService(IChapterRepository chapterRepository) => 
         _chapterRepository = chapterRepository;
     
-    public PageViewModel GetByChapterName(string chapterName) => 
-        _chapterMapper.MapModelToPageViewModel(_chapterRepository.GetByChapterName(chapterName));
+    public PageViewModel GetByChapterName(ushort chapterNumber) => 
+        _chapterMapper.MapModelToPageViewModel(_chapterRepository.GetByChapterName(chapterNumber));
 }

@@ -23,6 +23,6 @@ public class ChapterMock : IChapterRepository
         }
     };
 
-    public ChapterModel GetByChapterName(string chapterName) => 
-        _chapterModels.Single(chapter => chapter.Title == chapterName);
+    public ChapterModel GetByChapterName(ushort chapterNumber) => 
+        _chapterModels.Single(chapter => chapter.ChapterNumber == chapterNumber);
 }
