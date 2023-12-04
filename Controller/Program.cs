@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Service;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -15,6 +18,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<CourseDbContext>(
+    options => options.UseNpgsql(
+        builder.Configuration.GetConnectionString("CourseDatabase")
+    )
+);
 
 WebApplication app = builder.Build();
 

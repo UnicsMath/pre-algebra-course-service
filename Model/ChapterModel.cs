@@ -5,6 +5,7 @@ namespace Model;
 
 public class ChapterModel
 {
+    [Key]
     public ushort ChapterId { get; set; }
     
     [Required]
@@ -14,20 +15,26 @@ public class ChapterModel
     public string Title { get; set; }
     
     [Required]
-    public string Description { get; set; }
+    public string Content { get; set; }
     
     [Required]
-    public ExpressionConfiguration ExpressionConfiguration { get; set; }
+    public ushort MinimumLength { get; set; }
+    
+    [Required]
+    public ushort MaximumLength { get; set; }
+    
+    [Required]
+    public ushort MinimumConstantValue { get; set; }
+    
+    [Required]
+    public ushort MaximumConstantValue { get; set; }
     
     [ForeignKey("CourseModel")]
-    public long CourseId { get; set; }
+    public byte CourseId { get; set; }
     public virtual CourseModel Course { get; set; }
 
     // https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#unidirectional-many-to-many
     // note: this is a unidirectional many-to-many relationship
-    /// <summary>
-    ///     The list of operators that are used in this chapter.
-    /// </summary>
     [Required] 
     public IEnumerable<OperatorModel> Operators { get; } = new List<OperatorModel>();
 }

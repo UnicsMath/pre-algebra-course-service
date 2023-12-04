@@ -5,7 +5,8 @@ namespace Model;
 
 public class CourseModel
 {
-    public long CourseId { get; set; }
+    [Key]
+    public byte CourseId { get; set; }
     
     [Required]
     [MaxLength(128, ErrorMessage="CourseName must be 128 characters or less"),MinLength(5)]
@@ -23,7 +24,7 @@ public class CourseModel
     public DateTime Updated { get; set; }
     
     [ForeignKey("AuthorModel")]
-    public long AuthorId { get; set; }
+    public byte AuthorId { get; set; }
     public virtual AuthorModel Author { get; set; }
     
     public virtual ICollection<ChapterModel> Chapters { get; init; } = new List<ChapterModel>();

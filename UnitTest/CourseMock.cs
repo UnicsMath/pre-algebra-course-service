@@ -29,14 +29,14 @@ public class CourseMock : ICourseRepository
                     ChapterId = 1,
                     ChapterNumber = 1,
                     Title = "Introduction to Algebra",
-                    Description = "Learn the basics of algebra for free—focused on common mathematical relationships, such as linear relationships. Full curriculum of exercises and videos."
+                    Content = "Learn the basics of algebra for free—focused on common mathematical relationships, such as linear relationships. Full curriculum of exercises and videos."
                 },
                 new()
                 {
                     ChapterId = 2,
                     ChapterNumber = 2,
                     Title = "Linear Equations & Inequalities",
-                    Description = "Learn how to solve linear equations that contain a single variable. For example, solve 2(x+3)=(4x-1)/2+7."
+                    Content = "Learn how to solve linear equations that contain a single variable. For example, solve 2(x+3)=(4x-1)/2+7."
                 }
             }
         }
