@@ -8,4 +8,8 @@ namespace Service;
 public partial class ChapterMapper
 {
     public partial PageViewModel MapModelToPageViewModel(ChapterModel chapter);
+    
+    public partial ChapterModel MapCreateChapterViewModelToModel(CreateChapterViewModel createChapterViewModel);
+    
+    public partial CreateChapterViewModel MapModelToCreateChapterViewModel(ChapterModel chapter);
 }

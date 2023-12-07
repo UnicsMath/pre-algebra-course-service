@@ -10,8 +10,8 @@ using Service;
 namespace Repository.Migrations
 {
     [DbContext(typeof(CourseDbContext))]
-    [Migration("20231204201340_FixMathOperator")]
-    partial class FixMathOperator
+    [Migration("20231206181305_FixMathOperation")]
+    partial class FixMathOperation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,19 +23,19 @@ namespace Repository.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ChapterModelOperatorModel", b =>
+            modelBuilder.Entity("ChapterModelOperationModel", b =>
                 {
                     b.Property<int>("ChapterModelChapterId")
                         .HasColumnType("integer");
 
-                    b.Property<byte>("OperatorsMathOperatorId")
+                    b.Property<byte>("OperationsMathOperationId")
                         .HasColumnType("smallint");
 
-                    b.HasKey("ChapterModelChapterId", "OperatorsMathOperatorId");
+                    b.HasKey("ChapterModelChapterId", "OperationsMathOperationId");
 
-                    b.HasIndex("OperatorsMathOperatorId");
+                    b.HasIndex("OperationsMathOperationId");
 
-                    b.ToTable("ChapterModelOperatorModel");
+                    b.ToTable("ChapterModelOperationModel");
                 });
 
             modelBuilder.Entity("Model.AuthorModel", b =>
@@ -133,21 +133,21 @@ namespace Repository.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("Model.OperatorModel", b =>
+            modelBuilder.Entity("Model.OperationModel", b =>
                 {
-                    b.Property<byte>("MathOperatorId")
+                    b.Property<byte>("MathOperationId")
                         .HasColumnType("smallint");
 
-                    b.Property<string>("MathOperator")
+                    b.Property<string>("MathOperation")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("MathOperatorId");
+                    b.HasKey("MathOperationId");
 
-                    b.ToTable("Operators");
+                    b.ToTable("Operations");
                 });
 
-            modelBuilder.Entity("ChapterModelOperatorModel", b =>
+            modelBuilder.Entity("ChapterModelOperationModel", b =>
                 {
                     b.HasOne("Model.ChapterModel", null)
                         .WithMany()
@@ -155,9 +155,9 @@ namespace Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Model.OperatorModel", null)
+                    b.HasOne("Model.OperationModel", null)
                         .WithMany()
-                        .HasForeignKey("OperatorsMathOperatorId")
+                        .HasForeignKey("OperationsMathOperationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

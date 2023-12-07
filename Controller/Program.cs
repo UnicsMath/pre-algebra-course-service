@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Repository;
 using Service;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,12 @@ builder.Services.AddDbContext<CourseDbContext>(
         builder.Configuration.GetConnectionString("CourseDatabase")
     )
 );
+
+builder.Services.AddScoped<CourseService, CourseService>();
+builder.Services.AddScoped<ChapterService, ChapterService>();
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
 
 WebApplication app = builder.Build();
 

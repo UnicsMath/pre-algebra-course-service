@@ -13,4 +13,12 @@ public class ChapterService
     
     public PageViewModel GetByChapterName(ushort chapterNumber) => 
         _chapterMapper.MapModelToPageViewModel(_chapterRepository.GetByChapterName(chapterNumber));
+    
+    public CreateChapterViewModel Create(CreateChapterViewModel createChapterViewModel) => 
+        _chapterMapper.MapModelToCreateChapterViewModel(
+            _chapterRepository.Create(
+                createChapterViewModel.CourseName,
+                _chapterMapper.MapCreateChapterViewModelToModel(createChapterViewModel)
+            )
+        );
 }

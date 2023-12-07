@@ -8,7 +8,7 @@ public class CourseDbContext : DbContext
     public DbSet<AuthorModel> Authors { get; set; }
     public DbSet<CourseModel> Courses { get; set; }
     public DbSet<ChapterModel> Chapters { get; set; }
-    public DbSet<OperatorModel> Operators { get; set; }
+    public DbSet<OperationModel> Operations { get; set; }
     
     public CourseDbContext(DbContextOptions<CourseDbContext> options)
         : base(options)
@@ -18,7 +18,7 @@ public class CourseDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ChapterModel>()
-            .HasMany(chapterModel => chapterModel.Operators)
+            .HasMany(chapterModel => chapterModel.Operations)
             .WithMany();
     }
 }

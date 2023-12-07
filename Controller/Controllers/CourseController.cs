@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Service;
-using UnitTest;
 using ViewModels;
 
 namespace Controller.Controllers;
@@ -9,8 +8,11 @@ namespace Controller.Controllers;
 [Route("[Controller]")]
 public class CourseController : ControllerBase
 {
-    private CourseService _courseService = new(new CourseMock());
-    
+    private readonly CourseService _courseService;
+
+    public CourseController(CourseService courseService) => 
+        _courseService = courseService;
+
     [HttpGet("{courseName}")]
     public CourseIndexViewModel GetByCourseName(string courseName) => 
         _courseService.GetByCourseName(courseName);

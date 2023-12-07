@@ -5,7 +5,7 @@ namespace UnitTest;
 
 public class ChapterMock : IChapterRepository
 {
-    private readonly IEnumerable<ChapterModel> _chapterModels = new List<ChapterModel>
+    private readonly ICollection<ChapterModel> _chapterModels = new List<ChapterModel>
     {
         new()
         {
@@ -25,4 +25,10 @@ public class ChapterMock : IChapterRepository
 
     public ChapterModel GetByChapterName(ushort chapterNumber) => 
         _chapterModels.Single(chapter => chapter.ChapterNumber == chapterNumber);
+
+    public ChapterModel Create(string courseName, ChapterModel chapter)
+    {
+        _chapterModels.Add(chapter);
+        return chapter;
+    }
 }

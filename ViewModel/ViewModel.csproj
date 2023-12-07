@@ -7,4 +7,8 @@
         <RootNamespace>ViewModels</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Enum\Enum.csproj" />
+    </ItemGroup>
+
 </Project>

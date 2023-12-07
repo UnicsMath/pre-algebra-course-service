@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Service;
-using UnitTest;
 using ViewModels;
 
 namespace Controller.Controllers;
@@ -9,9 +8,16 @@ namespace Controller.Controllers;
 [Route("[Controller]")]
 public class PageController : ControllerBase
 {
-    private ChapterService _chapterService = new(new ChapterMock());
-    
+    private readonly ChapterService _chapterService;
+
+    public PageController(ChapterService chapterService) => 
+        _chapterService = chapterService;
+
     [HttpGet("{chapterNumber}")]
     public PageViewModel GetByChapterName(ushort chapterNumber) => 
         _chapterService.GetByChapterName(chapterNumber);
+    
+    [HttpPost("Add")]
+    public CreateChapterViewModel Create(CreateChapterViewModel createChapterViewModel) => 
+        _chapterService.Create(createChapterViewModel);
 }

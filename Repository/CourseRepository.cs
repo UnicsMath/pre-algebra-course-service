@@ -9,8 +9,6 @@ public class CourseRepository : ICourseRepository
     
     public CourseRepository(CourseDbContext context) => _context = context;
 
-    public CourseModel GetByName(string courseName)
-    {
-        throw new NotImplementedException();
-    }
+    public CourseModel GetByName(string courseName) => 
+        _context.Courses.Single(courses => courses.Name == courseName);
 }
