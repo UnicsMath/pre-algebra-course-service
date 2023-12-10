@@ -8,14 +8,14 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  server:
+  course-service:
     environment:
       - ASPNETCORE_URLS=http://0.0.0.0:6810
     build:
       context: .
       target: final
     ports:
-      - 5279:6810
+      - 6810:6810
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
@@ -25,11 +25,10 @@ services:
 # a password of your choosing to it before running `docker compose up`.
     depends_on:
       db:
-        condition: service_healthy
+        condition: service_started
         
-  db:
+  course-database:
     image: postgres:16.1-alpine
-    restart: always
     user: postgres
     secrets:
       - db-password
@@ -38,15 +37,10 @@ services:
     environment:
       - POSTGRES_DB=course
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
-    expose:
-      - 5432
-    healthcheck:
-      test: [ "CMD", "pg_isready" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
     ports:
-      - 6811:5432
+      - 6811:6811
+    command: postgres -c listen_addresses='*' -c port=6811
+
 volumes:
   db-data:
 secrets:
