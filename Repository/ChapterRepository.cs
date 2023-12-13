@@ -9,13 +9,12 @@ public class ChapterRepository : IChapterRepository
     
     public ChapterRepository(CourseDbContext context) => _context = context;
     
-    public ChapterModel GetByChapterName(ushort chapterNumber) => 
+    public ChapterModel GetByChapterNumber(ushort chapterNumber) => 
         _context.Chapters.Single(chapter => chapter.ChapterNumber == chapterNumber);
 
-    public ChapterModel Create(string courseName, ChapterModel chapter)
+    public bool Create(string courseName, ChapterModel chapter)
     {
         _context.Courses.Single(course => course.Name == courseName).Chapters.Add(chapter);
-        _context.SaveChanges();
-        return chapter;
+        return _context.SaveChanges() > 0;
     }
 }

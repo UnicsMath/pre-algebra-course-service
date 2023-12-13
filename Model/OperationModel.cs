@@ -6,7 +6,7 @@ namespace Model;
 public class OperationModel
 {
     [Key]
-    public MathOperations MathOperationId { get; set; }
+    public byte MathOperationId { get; set; }
     
     [Required]
     public string MathOperation { get; set; }

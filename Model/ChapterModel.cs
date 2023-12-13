@@ -36,5 +36,5 @@ public class ChapterModel
     // https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#unidirectional-many-to-many
     // note: this is a unidirectional many-to-many relationship
     [Required] 
-    public IEnumerable<OperationModel> Operations { get; } = new List<OperationModel>();
+    public IEnumerable<OperationModel> Operations { get; init; } = new List<OperationModel>();
 }

@@ -24,7 +24,7 @@ services:
 # to set the database password. You must create `db/password.txt` and add
 # a password of your choosing to it before running `docker compose up`.
     depends_on:
-      db:
+      course-database:
         condition: service_started
         
   course-database:

@@ -4,8 +4,14 @@
     <data-source source="LOCAL" name="course@localhost" uuid="80e7f822-9407-4e43-8b6e-846accdcd72d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>Host=localhost:6811;Username=postgres;Password=g69y7hmvk98y7kvh879yh78hhhhh98hmkv7986y789hky7mk7897h8m679v8hmy7h768y7h70y67hmk6v7697h;Database=course</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:6811/course</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

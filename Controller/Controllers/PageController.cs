@@ -14,10 +14,10 @@ public class PageController : ControllerBase
         _chapterService = chapterService;
 
     [HttpGet("{chapterNumber}")]
-    public PageViewModel GetByChapterName(ushort chapterNumber) => 
-        _chapterService.GetByChapterName(chapterNumber);
+    public PageViewModel GetByChapterNumber(ushort chapterNumber) => 
+        _chapterService.GetByChapterNumber(chapterNumber);
     
     [HttpPost("Add")]
-    public CreateChapterViewModel Create(CreateChapterViewModel createChapterViewModel) => 
+    public bool Create(CreateChapterViewModel createChapterViewModel) => 
         _chapterService.Create(createChapterViewModel);
 }

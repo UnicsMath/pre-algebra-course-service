@@ -4,6 +4,6 @@ namespace Repository;
 
 public interface IChapterRepository
 {
-    ChapterModel GetByChapterName(ushort chapterNumber);
-    ChapterModel Create(string courseName, ChapterModel chapter);
+    ChapterModel GetByChapterNumber(ushort chapterNumber);
+    bool Create(string courseName, ChapterModel chapter);
 }
