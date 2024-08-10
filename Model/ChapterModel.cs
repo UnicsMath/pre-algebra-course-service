@@ -6,7 +6,7 @@ namespace Model;
 public class ChapterModel
 {
     [Key]
-    public ushort ChapterId { get; set; }
+    public ushort ChapterId { get; init; }
     
     [Required]
     public ushort ChapterNumber { get; set; }
@@ -30,8 +30,8 @@ public class ChapterModel
     public ushort MaximumConstantValue { get; set; }
     
     [ForeignKey("CourseModel")]
-    public byte CourseId { get; set; }
-    public virtual CourseModel Course { get; set; }
+    public byte CourseId { get; init; }
+    public virtual CourseModel Course { get; init; }
 
     // https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#unidirectional-many-to-many
     // note: this is a unidirectional many-to-many relationship

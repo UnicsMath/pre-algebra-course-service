@@ -5,10 +5,10 @@ namespace Service;
 
 public class CourseDbContext : DbContext
 {
-    public DbSet<AuthorModel> Authors { get; set; }
-    public DbSet<CourseModel> Courses { get; set; }
-    public DbSet<ChapterModel> Chapters { get; set; }
-    public DbSet<OperationModel> Operations { get; set; }
+    public DbSet<AuthorModel> Authors { get; init; }
+    public DbSet<CourseModel> Courses { get; init; }
+    public DbSet<ChapterModel> Chapters { get; init; }
+    public DbSet<OperationModel> Operations { get; init; }
     
     public CourseDbContext(DbContextOptions<CourseDbContext> options)
         : base(options)
